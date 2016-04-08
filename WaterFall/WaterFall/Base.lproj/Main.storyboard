@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7ig-ij-L5F">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eMX-ln-sAv">
+            <objects>
+                <navigationController id="7ig-ij-L5F" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xyd-8E-FwS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3Jw-3Q-Ng2" kind="relationship" relationship="rootViewController" id="lHS-Gv-kre"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6S3-vM-2zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="426" y="101"/>
+        </scene>
+        <!--瀑布流的实现-->
+        <scene sceneID="dfr-Yt-Gkf">
+            <objects>
+                <collectionViewController id="3Jw-3Q-Ng2" customClass="WaterFallController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rYs-lR-elH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewLayout key="collectionViewLayout" id="eXB-7B-KC2" customClass="CustomCollectionViewLayout"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qV5-Sm-MAp" customClass="WaterFallCollectionCell">
+                                <rect key="frame" x="0.0" y="64" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="O3k-l4-Thz">
+                                            <rect key="frame" x="-8" y="-8" width="116" height="116"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="O3k-l4-Thz" secondAttribute="bottom" constant="-16" id="AAk-L3-TnV"/>
+                                    <constraint firstItem="O3k-l4-Thz" firstAttribute="top" secondItem="qV5-Sm-MAp" secondAttribute="topMargin" constant="-16" id="IXr-I9-Qv9"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="O3k-l4-Thz" secondAttribute="trailing" constant="-16" id="Tjg-ii-Z6u"/>
+                                    <constraint firstItem="O3k-l4-Thz" firstAttribute="leading" secondItem="qV5-Sm-MAp" secondAttribute="leadingMargin" constant="-16" id="utz-6t-5tz"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="imageCell" destination="O3k-l4-Thz" id="VBx-xs-Xo2"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="3Jw-3Q-Ng2" id="T14-uo-rQc"/>
+                            <outlet property="delegate" destination="3Jw-3Q-Ng2" id="Ez5-kC-vDO"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="瀑布流的实现" id="OCs-Tt-DOf"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHb-Yq-y1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="88"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.jpg" width="600" height="900"/>
+    </resources>
+</document>
